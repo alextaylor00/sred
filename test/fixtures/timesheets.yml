@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fp_id: 1
+  date: 2015-08-12
+  task_name: MyString
+  service_group: MyString
+  service: MyString
+  description: MyString
+  hours: 9.99
+
+two:
+  fp_id: 1
+  date: 2015-08-12
+  task_name: MyString
+  service_group: MyString
+  service: MyString
+  description: MyString
+  hours: 9.99
