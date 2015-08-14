@@ -1,0 +1,16 @@
+<h1>Timesheets</h1>
+<p>Showing <%= @timesheets.count %> total timesheets.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Staff</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Service Group</th>
+      <th>Hours</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @timesheets %>
+  </tbody>
+</table>

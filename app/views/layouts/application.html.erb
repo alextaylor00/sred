@@ -7,7 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar">
+  <ul class="nav">
+    <li><%= link_to "Timesheets", timesheets_path %></li>
+    <li><%= link_to "Upload", upload_timesheets_path %></li>
+  </ul>
 
+</div>
 <%= yield %>
 
 </body>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :timesheets do
-    post 'import', on: :collection
+  root "timesheets#index"
 
+  resources :timesheets, only: [:index] do
+    get 'upload', on: :collection
+    post 'import', on: :collection
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

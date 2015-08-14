@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812233629) do
+ActiveRecord::Schema.define(version: 20150814215406) do
 
   create_table "timesheets", force: :cascade do |t|
     t.integer  "fp_id"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20150812233629) do
     t.decimal  "hours"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "staff"
+    t.string   "job_name"
   end
 
 end
