@@ -8,6 +8,7 @@ one:
   service: MyString
   description: MyString
   hours: 9.99
+  staff_member: staff_member_with_two_timesheets
 
 two:
   fp_id: 1
@@ -17,3 +18,14 @@ two:
   service: MyString
   description: MyString
   hours: 9.99
+  staff_member: staff_member_with_two_timesheets
+
+three:
+  fp_id: 1
+  date: 2015-08-12
+  task_name: MyString
+  service_group: MyString
+  service: MyString
+  description: MyString
+  hours: 9.99
+  staff_member: staff_member_with_one_timesheet

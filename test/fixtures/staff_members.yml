@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+staff_member_with_two_timesheets:
+  first_name: MyString
+  last_name: MyString
+  initials: MyString
+
+staff_member_with_one_timesheet:
+  first_name: MyString
+  last_name: MyString
+  initials: MyString
+
+alex:
+  first_name: Alex
+  last_name: Taylor
+  initials: AT

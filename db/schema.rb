@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814215406) do
+ActiveRecord::Schema.define(version: 20150818231510) do
+
+  create_table "staff_members", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "initials"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "timesheets", force: :cascade do |t|
     t.integer  "fp_id"
@@ -21,10 +29,11 @@ ActiveRecord::Schema.define(version: 20150814215406) do
     t.string   "service"
     t.string   "description"
     t.decimal  "hours"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "staff"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "staff_initials"
     t.string   "job_name"
+    t.integer  "staff_member_id"
   end
 
 end
