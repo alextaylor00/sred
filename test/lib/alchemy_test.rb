@@ -18,6 +18,15 @@ class AlchemyParserTest < ActionDispatch::IntegrationTest
 
     a = AlchemyParser.new(lorem_ipsum, byte_limit)
     assert_not_empty a.keywords
+  end
+
+  test "alchemy parser: returns concepts" do
+    byte_limit = 765
+    lorem_ipsum = File.read(File.expand_path('../../fixtures/loremipsum.txt', __FILE__))
+
+    a = AlchemyParser.new(lorem_ipsum, byte_limit)
+    assert_not_empty a.concepts
     debugger
   end
+
 end

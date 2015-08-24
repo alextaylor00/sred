@@ -4,6 +4,7 @@ class AlchemyParser
   attr_accessor :text
   attr_accessor :text_chunks
   attr_reader :keywords
+  attr_reader :concepts
 
   def initialize(text, byte_limit)
     @text = text
@@ -31,16 +32,22 @@ class AlchemyParser
   end
 
   def keywords
-    @keywords ||= generate_keywords
+    @keywords ||= generate :keywords
   end
 
-  def generate_keywords
+  def concepts
+    @concepts ||= generate :concepts
+  end
+
+  def generate(object)
+    valid_objects = [:keywords, :concepts]
+    return false unless valid_objects.include?(object)
     kw = Hash.new
 
     @text_chunks.each do |chunk|
-      result = @api.keywords('text',chunk)
+      result = @api.send(object,'text',chunk)
       next if result["status"] == "ERROR"
-      result_keywords = Hash[ result["keywords"].map { |i| [i["text"], i["relevance"]] } ]
+      result_keywords = Hash[ result[object.to_s].map { |i| [i["text"], i["relevance"]] } ]
       # keywords will get added to kw; duplicate keywords from multiple chunks
       #  will have their relevances appended
       result_keywords.each do |k, v|
