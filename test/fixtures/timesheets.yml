@@ -9,6 +9,7 @@ one:
   description: MyString
   hours: 9.99
   staff_member: staff_member_with_two_timesheets
+  job: one
 
 two:
   fp_id: 1
@@ -19,6 +20,7 @@ two:
   description: MyString
   hours: 9.99
   staff_member: staff_member_with_two_timesheets
+  job: one
 
 three:
   fp_id: 1
@@ -29,3 +31,4 @@ three:
   description: MyString
   hours: 9.99
   staff_member: staff_member_with_one_timesheet
+  job: one

@@ -26,7 +26,6 @@ class AlchemyParserTest < ActionDispatch::IntegrationTest
 
     a = AlchemyParser.new(lorem_ipsum, byte_limit)
     assert_not_empty a.concepts
-    debugger
   end
 
 end

@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     post 'import', on: :collection
   end
 
+  resources :tasks, only: [:index] do
+    get 'upload', on: :collection
+    post 'import', on: :collection
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
