@@ -1,6 +1,7 @@
 class Timesheet < ActiveRecord::Base
   # Associations
   belongs_to :staff_member
+  belongs_to :job
 
   # Validations
   validates :date,

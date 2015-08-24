@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150818231510) do
+ActiveRecord::Schema.define(version: 20150824184222) do
+
+  create_table "jobs", force: :cascade do |t|
+    t.integer  "fp_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sred_projects", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "staff_members", force: :cascade do |t|
     t.string   "first_name"
@@ -19,6 +32,15 @@ ActiveRecord::Schema.define(version: 20150818231510) do
     t.string   "initials"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "fp_id"
+    t.string   "title"
+    t.string   "description"
+    t.integer  "job_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "timesheets", force: :cascade do |t|
@@ -34,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150818231510) do
     t.string   "staff_initials"
     t.string   "job_name"
     t.integer  "staff_member_id"
+    t.integer  "job_id"
   end
 
 end
