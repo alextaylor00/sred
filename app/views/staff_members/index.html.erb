@@ -1,0 +1,13 @@
+<h1>Staff Members</h1>
+<p>Showing <%= @staff_members.count %> staff members.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Initials</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @staff_members %>
+  </tbody>
+</table>

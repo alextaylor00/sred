@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "timesheets#index"
 
+  resources :jobs, only: [:index, :show]
+  resources :staff_members, only: [:index,:show]
+  resources :sred_projects
+
   resources :timesheets, only: [:index] do
     get 'upload', on: :collection
     post 'import', on: :collection

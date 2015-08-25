@@ -14,9 +14,20 @@ class Task < ActiveRecord::Base
 
   # Misc
   attr_accessor :job_number
+  attr_accessor :job_name
+
+  def job_name_display
+    if self.job
+      self.job.name
+    else
+      "--"
+    end
+  end
 
   def assign_to_job
-    self.job = Job.find_by(fp_id: self.job_number)
+    self.job = Job.find_by(fp_id: self.job_number) ||
+               Job.create(fp_id: self.job_number,
+                          name: self.job_name)
   end
 
   def self.import_from_csv(file)
@@ -29,6 +40,7 @@ class Task < ActiveRecord::Base
         t.title            = row["Task Title"]
         t.description      = row["Description"]
         t.job_number       = row["Job Number"]
+        t.job_name         = row["Job Name"]
 
         t.assign_to_job
 

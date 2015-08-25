@@ -1,0 +1,16 @@
+<h1>Tasks</h1>
+<p>Showing <%= @tasks.count %> total tasks.</p>
+<p><%= link_to "Import Tasks", upload_tasks_path %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Task #</th>
+      <th>Job</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tasks %>
+  </tbody>
+</table>

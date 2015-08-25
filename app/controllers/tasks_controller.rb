@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @timesheets = Timesheet.all
+    @tasks = Task.limit(100)
   end
 
   def import
