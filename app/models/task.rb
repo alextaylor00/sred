@@ -17,6 +17,10 @@ class Task < ActiveRecord::Base
   attr_accessor :job_number
   attr_accessor :job_name
 
+  def timesheets
+    Timesheet.where("task_name = ?", self.title)
+  end
+
   def job_name_display
     if self.job
       self.job.name

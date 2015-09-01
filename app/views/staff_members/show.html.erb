@@ -1,3 +1,10 @@
 <h1><%= staff_member_full_name(@staff_member) %></h1>
 <p>Total hours <%= sred_range_for_date(today_as_date - 1.year) %>: <strong><%= staff_member_total_hours(@staff_member, today_as_date - 1.year) %></strong></p>
 <p>Total hours <%= sred_range_for_date %>: <strong><%= staff_member_total_hours(@staff_member, today_as_date) %></strong></p>
+
+<h2>Jobs (<%= @staff_member.jobs.count%>)</h2>
+<ul>
+<% @staff_member.jobs.each do |j| %>
+  <li><%= link_to j.name, job_path(j) %></li>
+<% end %>
+</ul>

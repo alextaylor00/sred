@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "staff_members#index"
+  get "upload" => "static_pages#upload"
 
   resources :jobs, only: [:index, :show]
   resources :staff_members, only: [:index,:show]

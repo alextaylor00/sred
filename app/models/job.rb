@@ -15,5 +15,8 @@ class Job < ActiveRecord::Base
   # Callbacks
 
   # Misc
+  def total_hours
+    timesheets.sum("hours")
+  end
 
 end

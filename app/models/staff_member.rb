@@ -13,6 +13,8 @@ class StaffMember < ActiveRecord::Base
   # Callbacks
 
   # Misc
-
+  def jobs
+    Job.joins(:timesheets).where(timesheets: { staff_member: self }).uniq
+  end
 
 end

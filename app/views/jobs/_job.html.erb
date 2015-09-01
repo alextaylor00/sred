@@ -1,4 +1,4 @@
 <tr>
-  <th><%= job.fp_id %></th>
-  <th><%= job.name  %></th>
+  <th><%= link_to job.fp_id, job_path(job) %></th>
+  <th><%= link_to job.name, job_path(job)  %></th>
 </tr>

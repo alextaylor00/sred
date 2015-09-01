@@ -20,9 +20,16 @@ class Timesheet < ActiveRecord::Base
   # Callbacks
 
   # Misc
+  attr_accessor :job_number
 
   def assign_to_staff_member
     self.staff_member = StaffMember.find_by(initials: self.staff_initials)
+  end
+
+  def assign_to_job
+    self.job = Job.find_by(fp_id: self.job_number) ||
+               Job.create(fp_id: self.job_number,
+                          name: self.job_name)
   end
 
   def self.import_from_csv(file)
@@ -37,6 +44,7 @@ class Timesheet < ActiveRecord::Base
         t.date            = row["Date"]
         t.staff_initials  = row["Staff"]
         t.job_name        = row["Job Name"]
+        t.job_number      = row["Job"]
         t.task_name       = row["Task Name"]
         t.service_group   = row["Service Group"]
         t.service         = row["Service"]
@@ -44,6 +52,7 @@ class Timesheet < ActiveRecord::Base
         t.hours           = row["Hours"]
 
         t.assign_to_staff_member
+        t.assign_to_job
 
         if t.save
           num_rows_imported += 1

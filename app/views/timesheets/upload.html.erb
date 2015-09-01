@@ -1,4 +1,7 @@
-<h1>Upload</h1>
+<% provide(:title, "Upload timesheets") %>
+<h1>Upload Timesheets</h1>
+<p><%= link_to "Launch Function Point Timesheet Search", "https://helium.functionpoint.com/fpX/html/Default/Findlist/get-Find-View/findListType/Timesheet", target:"new" %></p>
+<p><em>You may be asked to log in. Click <strong>Find</strong> on the resulting search form, then select <strong>CSV > Export All Data</strong>. Upload this file.</em></p>
 <%= form_tag import_timesheets_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
