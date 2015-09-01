@@ -1,4 +1,5 @@
 class Timesheet < ActiveRecord::Base
+
   # Associations
   belongs_to :staff_member
   belongs_to :job
@@ -12,11 +13,14 @@ class Timesheet < ActiveRecord::Base
             presence: true
 
   # Scopes
-
+  def self.in_sred_year (year)
+    where("date >= ?", Date.new(year,8,1)).where("date <= ?", Date.new(year+1,7,31))
+  end
 
   # Callbacks
 
   # Misc
+
   def assign_to_staff_member
     self.staff_member = StaffMember.find_by(initials: self.staff_initials)
   end

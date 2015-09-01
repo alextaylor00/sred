@@ -14,3 +14,8 @@ alex:
   first_name: Alex
   last_name: Taylor
   initials: AT
+
+john:
+  first_name: John
+  last_name: Smith
+  initials: JS

@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sred</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar">
-  <ul class="nav">
-    <li><%= link_to "Timesheets", timesheets_path %></li>
-    <li><%= link_to "Tasks", tasks_path %></li>
-    <li><%= link_to "Jobs", jobs_path %></li>
-    <li><%= link_to "Staff", staff_members_path %></li>
-    <li><%= link_to "SRED Projects", sred_projects_path %></li>
-  </ul>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to "SRED.app", root_url, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Staff", staff_members_path %></li>
+        <li><%= link_to "Jobs", jobs_path %></li>
+        <li><%= link_to "SRED Projects", sred_projects_path %></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+
+  <%= yield %>
+
 </div>
-<% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
-
-<%= yield %>
-
 </body>
 </html>

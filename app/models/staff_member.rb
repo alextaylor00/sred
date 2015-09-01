@@ -10,7 +10,6 @@ class StaffMember < ActiveRecord::Base
 
   # Scopes
 
-
   # Callbacks
 
   # Misc

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "timesheets#index"
+  root "staff_members#index"
 
   resources :jobs, only: [:index, :show]
   resources :staff_members, only: [:index,:show]

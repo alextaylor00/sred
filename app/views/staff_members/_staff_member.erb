@@ -1,4 +1,4 @@
 <tr>
-  <th><%= staff_member.initials %></th>
-  <th><%= full_name(staff_member)  %></th>
+  <th><%= link_to staff_member.initials, staff_member_path(staff_member) %>  </th>
+  <th><%= link_to staff_member_full_name(staff_member), staff_member_path(staff_member)  %></th>
 </tr>
