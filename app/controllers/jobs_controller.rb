@@ -18,7 +18,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    @job = Job.find(params[:id])
+    @job = Job.find_by(fp_id: params[:fp_id])
     # build up notes
     @notes = []
     orphan_timesheets = @job.timesheets.where("task_name = ''")
@@ -27,5 +27,11 @@ class JobsController < ApplicationController
       @notes << JobNotesPresenter.new(t.title, t.description, t.timesheets) if t.timesheets.present?
     end
   end
+
+  def timesheets
+    @job = Job.find_by(fp_id: params[:fp_id])
+    @timesheets = @job.timesheets
+  end
+
 
 end

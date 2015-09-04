@@ -1,4 +1,5 @@
 <h1>Job: <%= @job.name %></h1>
+<%= link_to "Notes", job_path(@job) %> &middot; <%= link_to "Timesheets", timesheets_job_path(@job) %>
 <p>Total Hours: <%= @job.total_hours %></p>
 
 <div class="row">

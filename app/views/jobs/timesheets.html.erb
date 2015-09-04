@@ -1,0 +1,23 @@
+<h1>Job: <%= @job.name %></h1>
+<%= link_to "Notes", job_path(@job) %> &middot; <%= link_to "Timesheets", timesheets_job_path(@job) %>
+
+<div class="row">
+  <div class="col-md-4">
+  <h2>Timesheets</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Staff</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Service Group</th>
+        <th>Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "timesheets/timesheet", collection: @timesheets %>
+    </tbody>
+  </table>
+
+</div><!-- /col-md-4 -->
+</div>

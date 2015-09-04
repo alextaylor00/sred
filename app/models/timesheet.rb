@@ -1,4 +1,5 @@
 class Timesheet < ActiveRecord::Base
+  include UsesFpId
 
   # Associations
   belongs_to :staff_member

@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root "staff_members#index"
   get "upload" => "static_pages#upload"
 
-  resources :jobs, only: [:index, :show]
+  resources :jobs, param: :fp_id, only: [:index, :show] do
+      get 'timesheets', on: :member
+  end
+
   resources :staff_members, only: [:index,:show]
   resources :sred_projects
 
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
     post 'import', on: :collection
   end
 
-  resources :tasks, only: [:index] do
+  resources :tasks, param: :fp_id, only: [:index] do
     get 'upload', on: :collection
     post 'import', on: :collection
   end
