@@ -4,6 +4,10 @@ class TimesheetsController < ApplicationController
     @timesheets = Timesheet.all
   end
 
+  def show
+    @timesheet = Timesheet.find_by(fp_id: params[:id])
+  end
+
   def import
     csv_file = params[:file]
     Timesheet.import_from_csv(csv_file)

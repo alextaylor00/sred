@@ -20,4 +20,11 @@ class TimesheetsImportTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "newlines in timesheet fields are handled correctly" do
+
+    assert_equal 1, 1
+    debugger
+    post import_timesheets_path, file: fixture_file_upload("/fp_timesheet_export_test_data_newlines.csv","text/csv")
+  end
+
 end

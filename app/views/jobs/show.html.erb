@@ -1,4 +1,17 @@
 <h1>Job: <%= @job.name %></h1>
 <p>Total Hours: <%= @job.total_hours %></p>
 
-<h2>Notes</h2>
+<div class="row">
+  <div class="col-md-4">
+  <h2>Notes</h2>
+  <% @notes.each do |n| %>
+   <h4><%= n.task_title %></h4>
+    <p><%= n.task_description %></h4>
+  <ul>
+    <% n.timesheets.each do |t| %>
+      <li><%= unescape_and_format(t.description) %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div><!-- /col-md-4 -->
+</div>

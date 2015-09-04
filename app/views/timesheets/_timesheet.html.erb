@@ -1,7 +1,7 @@
 <tr>
   <td><%= timesheet.staff_member.initials %></td>
   <td><%= timesheet.date %></td>
-  <td><%= timesheet.description %></td>
+  <td><%= unescape_and_format(timesheet.description) %></td>
   <td><%= timesheet.service_group %></td>
   <td><%= timesheet.hours %></td>
 </tr>
