@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :staff_members, only: [:index,:show]
   resources :sred_projects
 
-  resources :timesheets, only: [:index, :show] do
+  resources :timesheets, param: :fp_id, only: [:index, :show] do
     get 'upload', on: :collection
     post 'import', on: :collection
   end

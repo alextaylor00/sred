@@ -5,7 +5,7 @@ class TimesheetsController < ApplicationController
   end
 
   def show
-    @timesheet = Timesheet.find_by(fp_id: params[:id])
+    @timesheet = Timesheet.find_by(fp_id: params[:fp_id])
   end
 
   def import
